@@ -23,7 +23,7 @@ function App() {
                     {name: 'SHAPE', fill: 'white', strokeWidth: 0},
                     new go.Binding('fill', 'color')),
                 $(go.TextBlock,
-                    {margin: 8, editable: false, click: onItemClick},
+                    {margin: 8, editable: true, click: onItemClick},
                     new go.Binding('text').makeTwoWay()
                 )
             );
@@ -32,7 +32,7 @@ function App() {
     }
 
     const onItemClick = (event, object) => {
-        alert(`You have clicked to ${object.panel.data.text}`)
+        console.log(`You have clicked to ${object.panel.data.text}`)
     }
 
     return (
