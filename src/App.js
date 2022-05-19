@@ -16,14 +16,16 @@ function App() {
                         })
                 });
 
+        // define a simple Node template
         diagram.nodeTemplate =
-            $(go.Node, 'Auto',
+            $(go.Node, 'Auto',  // the Shape will go around the TextBlock
                 new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(go.Point.stringify),
                 $(go.Shape, 'RoundedRectangle',
                     {name: 'SHAPE', fill: 'white', strokeWidth: 0},
+                    // Shape.fill is bound to Node.data.color
                     new go.Binding('fill', 'color')),
                 $(go.TextBlock,
-                    {margin: 8, editable: false, click: onItemClick},
+                    {margin: 8, editable: false, click: onItemClick},  // some room around the text
                     new go.Binding('text').makeTwoWay()
                 )
             );
